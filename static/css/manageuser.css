@@ -1,0 +1,171 @@
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00246B;
+  padding: 8px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-size: 20px;
+}
+
+.navbar-logo img {
+  height: 60px;
+  width: 60px;
+  margin-left: 60px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  padding-right: 50px;
+}
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 0 !important;
+  object-fit: cover;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e0e8ef, #3b83f681);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container Styling */
+.container {
+  width: 80%;
+  margin-top: 150px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 24px;
+  color: #00246B;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Table Styling */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.user-table th {
+  background-color: #00246B;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.user-table tr:hover {
+  background-color: #e0e0e0;
+}
+
+/* Button Container */
+.btn-container {
+  display: flex;
+  justify-content: center; /* Center the buttons */
+  gap: 10px; /* Small space between buttons */
+}
+
+.btn {
+  width: 120px; /* Fixed width */
+  height: 40px; /* Fixed height */
+  padding: 0; /* Ensure no extra padding affects button size */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00246B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.delete-btn {
+  background-color: #e11d48;
+}
+
+.update-btn {
+  background-color: green;
+}
+
+
+
+/* Centering Table Content */
+.user-table td {
+  text-align: center; /* Center align table cell content */
+}
+
+/* Styling for Input Fields */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #333;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+
+
+button[type="submit"]:hover {
+  background-color: #00246B;
+}

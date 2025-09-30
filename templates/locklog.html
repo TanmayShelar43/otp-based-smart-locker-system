@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lock Log</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manageuser.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Dropdown Logout Menu */
+        .logout-menu {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+          }
+      
+          .logout-menu a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #00246B;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+          }
+      
+          .logout-menu a:hover {
+            background-color: #e1eaf1;
+          }
+      </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="{{ url_for('static', filename='images/Whitelogo.png') }}" alt="Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('requestotp') }}">Request OTP</a>
+        </div>
+        <div class="user-icon">
+            <img src="static/images/user (1).png" alt="User" class="profile-icon" id="profile-icon">
+            <div id="logout-menu" class="logout-menu">
+              <a href="{{ url_for('logout') }}">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+              </a>
+            </div>
+          </div>
+    </div>
+
+    <div class="container">
+        <h2>Lock Log</h2>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Access Type</th>
+                    <th>Access Date</th>
+                    <th>Access Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in lock_logs %}
+                <tr>
+                    <td>{{ log['Username'] }}</td>
+
+                    <!-- Access Type (Otp or Lock) -->
+                    <td>{{ log['Access_Type'] }}</td>
+
+                    <!-- Access Date -->
+                    <td>{{ log['Access_Date'] }}</td>
+
+                    <!-- Access Time -->
+                    <td>{{ log['Access_Time'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const profileIcon = document.getElementById('profile-icon');
+        const logoutMenu = document.getElementById('logout-menu');
+    
+        profileIcon.addEventListener('click', function() {
+          logoutMenu.style.display = logoutMenu.style.display === 'block' ? 'none' : 'block';
+        });
+    
+        window.addEventListener('click', function(event) {
+          if (!profileIcon.contains(event.target) && !logoutMenu.contains(event.target)) {
+            logoutMenu.style.display = 'none';
+          }
+        });
+      </script>
+</body>
+</html>

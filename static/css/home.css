@@ -1,0 +1,376 @@
+/* General Styles */
+:root{
+  --blue: #1621c0; 
+  --hover: #1649be; 
+  --light-color: #e2f0f3; 
+  --box-shadow: .3rem .3rem 0 rgba(22, 160, 133, .2);
+  --text-shadow: .3rem .3rem 0 rgba(0, 0, 0, .2);
+  --border: .2rem solid var(--green);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #e2f0f3; /* Kept your original background color */
+}
+
+/* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00246B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  transition: all ease-in-out 0.5s;
+}
+
+/* Logo */
+.logo {
+  height: 60px;
+  width: 60px;
+}
+
+.logo-div {
+  display: flex;
+  align-items: center;
+  margin-left: 70px;
+}
+
+/* Navigation Links */
+.links {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 55%;
+}
+
+/* Navbar Styles */
+nav {
+  background-color: #00246B;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Navbar Links */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  padding: 5px 15px;
+  margin: 0 8px;
+  position: relative;
+}
+
+/* Navbar Link Hover Effect */
+.links a {
+  color: white;
+}
+
+.links a:hover {
+  color: white;
+}
+
+/* Underline Animation */
+.links a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #ffffff;
+  transition: all 0.4s;
+}
+
+.links a:hover::before {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 150px;
+  padding-top: 50px;
+  padding-right: 50px;
+  margin-top: 90px;
+  height: 650px;
+}
+
+.text {
+  max-width: 50%;
+}
+
+.text h1 {
+  font-size: 60px;
+  font-weight: bold;
+  color: #000;
+}
+
+.text p {
+  font-size: 25px;
+  margin-top: 40px;
+  word-spacing: 4px;
+  color: #444;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 50px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 23px;
+  color: white;
+  background-color: #00246B;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-right: 30px;
+  margin-top: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #1649be;
+}
+
+/* Image Styling */
+.image img {
+  width: 600px;
+  margin-right: 30px;
+}
+
+/* Feature Section */
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 70px 30px;
+  background-color: #f8f9fa; /* Ensures white background for this section */
+}
+
+/* Feature Cards */
+.feature-card {
+  background: #ebe9e9;
+  padding: 10px;
+  width: 320px;
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;
+}
+
+
+
+/* Feature Icons */
+.feature-card img {
+  width: 70px;
+  height: 70px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Feature Text Styling */
+.feature-card h2 {
+  font-size: 22px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.feature-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* contact seciton */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: left;
+  padding: 20px;
+}
+
+.contact-container {
+  max-width: 1000px;
+}
+
+.contact-container h3 {
+  font-size: 30px;
+  color: #666; 
+  margin-bottom: 20px;
+}
+
+.contact-container h1 {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-group input {
+  background-color: #e2f0f3;
+  width: 27%;
+  padding: 20px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.contact-container textarea {
+  width: 97%;
+  background-color: #e2f0f3;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  font-size: 20px;
+  height: 70px;
+  resize: none;
+}
+
+.submit-btn {
+  background-color: #00246B;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  font-size: 18px;
+  border-radius: 40px;
+  cursor: pointer;
+  width: 250px;
+  margin-top: 30px;
+}
+
+.submit-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: #1649be;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+/* FAQ Section */
+.faq-section {
+font-family: Arial, sans-serif;
+background-color: black;
+color: #00246B;
+margin: 0;
+padding: 0;
+text-align: center;
+max-width: 900px;
+
+margin: 75px auto;
+
+}
+
+.faq-section h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #00246B;
+}
+
+/* FAQ Container */
+.faq-container {
+  background-color: #00246B;
+  background-color: #e2f0f3;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* FAQ Box */
+.faq {
+  background-color: azure;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+
+}
+
+/* Hover Effect */
+.faq:hover {
+  background-color: white;
+}
+
+/* FAQ Question */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* Icon */
+.icon {
+  font-size: 24px;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Answer Section */
+.faq-answer {
+  display: none;
+  padding: 15px 10px 0;
+  text-align: left;
+  border-top: 1px solid #555;
+}
+
+/* Show Answer */
+.faq.active .faq-answer {
+  display: block;
+}
+
+/* Rotate Icon */
+.faq.active .icon {
+  transform: rotate(45deg);
+}

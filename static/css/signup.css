@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0e8ef, #3b83f681);
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  padding-left: 33px;
+  background: rgba(255, 255, 255, 0);
+  position: absolute;
+  top: 20px;
+}
+
+.navbar img {
+  height: 60px;
+  width: 60px;
+}
+
+.wrapper {
+  display: flex;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  max-width: 700px;
+  width: 100%;
+}
+
+.image-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0f2fe00;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.container {
+  width: 50%;
+  padding: 30px;
+  text-align: center;
+}
+
+.signup-form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #1E3A8A;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #1E3A8A;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #e0f2fecc;
+  font-size: 14px;
+}
+
+.pin-inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pin-inputs input {
+  width: 22%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  background: #E0F2FE;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #1E40AF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #1D4ED8;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #1E3A8A;
+}
+
+p a {
+  color: #1E40AF;
+  text-decoration: none;
+  font-weight: bold;
+}

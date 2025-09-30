@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+    <title>Smart Locker System</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-div">
+                <img class="logo" src="static/images/whitelogo.png" >
+            </div>
+            <div class="links">
+                    <a href="#hero">Home</a>
+                    <a href="#contact-section">Contact us</a>
+                    <a href="{{ url_for('login') }}">Log-in</a>
+                    <a href="{{ url_for('signup') }}">Sign-up</a>
+                
+            </div>
+        </nav>
+    </header>
+    
+    
+
+    <section class="hero" id="hero">
+        <div class="text">
+            <h1>Unlock the Future with Smart Security!</h1>
+            <p>No more lost keys or security worries! Access your space safely with OTP-based smart locking.</p>
+            <div class="buttons">
+                <a href="{{ url_for('login') }}" class="btn">Verify Identity</a>
+                <a href="{{ url_for('signup') }}" class="btn">Sign-up</a>
+            </div>
+        </div>
+        <div class="image">
+            <img src="static/images/home.png" alt="Smart Lock">
+        </div>
+    </section>
+
+    <!-- features section -->
+
+    <section class="features">
+        <div class="feature-card">
+            <img src="static/images/authentication.png" alt="Authentication Icon">
+            <h2>Multi-Level Authentication</h2>
+            <p>Enhanced security with OTP verification and user authentication to prevent unauthorized access.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="static/images/status.png" alt="Lock Status Icon">
+            <h2>Real-Time Lock Status</h2>
+            <p>Instantly check if your locker is Locked or Unlocked anytime, from anywhere.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="static/images/notification (2).png" alt="Notification Icon">
+            <h2>Automated Notifications</h2>
+            <p>Get instant alerts for OTPs, access logs, and security breaches for better security monitoring.</p>
+        </div>
+
+        <div class="feature-card">
+            <img src="static/images/customer.png" alt="User Interface Icon">
+            <h2>User-Friendly Interface</h2>
+            <p>Simple and intuitive web & mobile interface designed for seamless access and management.</p>
+        </div>
+    </section>
+
+    <!-- features section end-->
+  
+    <!-- contact section start -->
+    <section class="contact-section" id="contact-section">
+        <div class="contact-container">
+            <h3>Get Started</h3>
+            <h1>Get in touch with us.<br>We're here to assist you.</h1>
+            
+            <form class="contact-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Email Address">
+                    <input type="tel" placeholder="Phone Number">
+                </div>
+                <textarea placeholder="Message"></textarea>
+                <button type="submit" class="submit-btn">Leave us a Message</button>
+            </form>
+
+            
+        </div>
+    </section>
+
+
+
+    <section class="faq-section">
+        
+        <div class="faq-container">
+            <h1>Frequently Asked Questions</h1>
+            <div class="faq">
+                
+                <div class="faq-question">
+                    <h3>What is the Smart Locker System?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our Smart Locker System is a secure, OTP-based storage solution that allows users to access their lockers using a One-Time Password (OTP) sent to their registered mobile or email. It ensures enhanced security for personal and business storage needs.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3>How does the OTP-based access work?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>When a user requests access, a unique One-Time Password (OTP) is sent to their registered mobile or email. The user must enter this OTP on the locker’s keypad to unlock the system. The OTP is valid for a short period to prevent unauthorized access.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3>Where can this system be used?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Our Smart Locker System is ideal for various locations, including:  
+                    <ul>
+                        <li>Offices & Workplaces</li>
+                        <li>Schools & Universities</li>
+                        <li>Residential Buildings</li>
+                        <li>Delivery & Package Pickup Stations</li>
+                        <li>Gyms & Sports Centers</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3>What happens if I enter the wrong OTP multiple times?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>For security reasons, if an incorrect OTP is entered multiple times, the system temporarily locks the user out. This prevents unauthorized access attempts. The user can request a new OTP after a short waiting period.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3>Can multiple users share the same locker?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! The admin can assign multiple users to a single locker, each receiving a unique OTP when they need access.</p>
+                </div>
+            </div>
+
+            <div class="faq">
+                <div class="faq-question">
+                    <h3>Can I access my locker from a remote location?</h3>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! The system can be integrated with an online platform where users can generate OTPs remotely and monitor their locker activity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Kohinoor. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: #00246B;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    
+    <script src="{{ url_for('static', filename='js/scriptFAQ.js') }}"></script>
+</body>
+</html>

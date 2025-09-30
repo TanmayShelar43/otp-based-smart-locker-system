@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <img src="static/images/blacklogo.png/" alt="Logo">
+    </div>
+    <div class="wrapper">
+        <div class="image-container">
+            <img src="static/images/38ced3de85-removebgg2.png" alt="Sign Up Image">
+        </div>
+        
+        <div class="container">
+            <form class="signup-form" method="POST" action="{{ url_for('signup') }}" onsubmit="return validateForm()">
+                <h2>Create an Account</h2>
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <small id="email-error" style="color:red; display:none;">Please enter a valid email address.</small>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                </div>
+                <div class="input-group">
+                    <label for="pin">Set 4-Digit PIN</label>
+                    <div class="pin-inputs">
+                        <input type="text" maxlength="1" name="pin0" pattern="\d" required>
+                        <input type="text" maxlength="1" name="pin1" pattern="\d" required>
+                        <input type="text" maxlength="1" name="pin2" pattern="\d" required>
+                        <input type="text" maxlength="1" name="pin3" pattern="\d" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn">Sign Up</button>
+                <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+
+                <!-- Status Message at the End -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="status-message">
+                        {% for category, message in messages %}
+                            {% if category == 'error' %}
+                                <p style="color:red; text-align:center;">{{ message }}</p>
+                            {% elif category == 'success' %}
+                                <p style="color:green; text-align:center;">{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript Validation Function
+        function validateForm() {
+            const email = document.getElementById('email').value;
+            const pinInputs = document.querySelectorAll('input[name^="pin"]');
+            let pin = '';
+
+            // Collect PIN values and check if they are all digits and 4 characters long
+            pinInputs.forEach(input => {
+                pin += input.value;
+            });
+
+            // Email Validation: Check if it's a valid email format using a regex pattern
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zAZ]{2,6}$/;
+            const emailError = document.getElementById('email-error');
+            
+            if (!emailPattern.test(email)) {
+                emailError.style.display = 'inline'; // Show error message
+                return false;  // Prevent form submission
+            } else {
+                emailError.style.display = 'none'; // Hide error message
+            }
+
+            // Check if PIN is exactly 4 digits
+            if (pin.length !== 4 || !/^\d{4}$/.test(pin)) {
+                alert("PIN must be exactly 4 digits.");
+                return false;  // Prevent form submission
+            }
+
+            // If all validations pass
+            return true;
+        }
+    </script>
+</body>
+</html>

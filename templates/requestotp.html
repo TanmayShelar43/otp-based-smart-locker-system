@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request OTP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/requestotp.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Dropdown Logout Menu */
+    .logout-menu {
+        position: absolute;
+        top: 75px;
+        right: 20px;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        padding: 10px 15px;
+        border-radius: 8px;
+        display: none;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+      }
+  
+      .logout-menu a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #00246B;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+  
+      .logout-menu a:hover {
+        background-color: #e1eaf1;
+      }
+  </style>
+</head>
+<body>
+    <body>
+        <div class="navbar">
+            <div class="navbar-logo">
+                <img src="{{ url_for('static', filename='images/Whitelogo.png') }}" alt="Logo">
+            </div>
+            <div class="navbar-links">
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('lockstatus') }}">Lock Status</a>
+            </div>
+            <div class="user-icon">
+                <img src="static/images/user (1).png" alt="User" class="profile-icon" id="profile-icon">
+                <div id="logout-menu" class="logout-menu">
+                  <a href="{{ url_for('logout') }}">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                  </a>
+                </div>
+              </div>
+        </div>
+        
+    <div class="otp-container">
+        <h2>Secure OTP Generation</h2>
+ 
+        <div class="otp-box">
+            <span class="otp-digit">_</span>
+            <span class="otp-digit">_</span>
+            <span class="otp-digit">_</span>
+            <span class="otp-digit">_</span>
+        </div>
+
+        <button id="requestOtpBtn">Generate OTP</button>
+
+        <p class="redirect-text">Want to check lock status? <a href="{{ url_for('lockstatus') }}">Click here</a></p>
+    </div>
+
+    <script>
+        
+            const profileIcon = document.getElementById('profile-icon');
+            const logoutMenu = document.getElementById('logout-menu');
+        
+            profileIcon.addEventListener('click', function() {
+              logoutMenu.style.display = logoutMenu.style.display === 'block' ? 'none' : 'block';
+            });
+        
+            window.addEventListener('click', function(event) {
+              if (!profileIcon.contains(event.target) && !logoutMenu.contains(event.target)) {
+                logoutMenu.style.display = 'none';
+              }
+            });
+          
+        document.getElementById('requestOtpBtn').addEventListener('click', async function () {
+            try {
+                const response = await fetch('/generate_otp', { method: 'POST' });
+                const result = await response.json();
+        
+                if (result.otp) {
+                    const otpDigits = result.otp.toString().split('');
+                    const otpBoxes = document.querySelectorAll('.otp-digit');
+                    otpBoxes.forEach((box, index) => {
+                        box.textContent = otpDigits[index] || '_';
+                    });
+                } else {
+                    alert('Failed to generate OTP. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error generating OTP:', error);
+                alert('An error occurred while generating the OTP.');
+            }
+        });
+        
+    </script>
+</body>
+</html>

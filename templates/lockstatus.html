@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lockstatus.css') }}">
+    <title>Check Lock Status</title>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="navbar-logo">
+        <img src="static/images/Whitelogo.png" alt="Logo">
+    </div>
+    <div class="navbar-links">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('requestotp') }}">Request OTP</a>
+    </div>
+    <div class="user-icon">
+      <img src="static/images/user (1).png" alt="User" class="profile-icon" id="profile-icon">
+      <div id="logout-menu" class="logout-menu">
+        <a href="{{ url_for('logout') }}">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </div>
+    </div>
+</div>
+
+    <div class="status-container">
+        <h2>Locker Status</h2>
+        <div id="lock-status" class="status-box">{{status}}</div>
+        <button id="refreshStatusBtn" onclick="location.reload(true)">Refresh Status</button>
+    </div>
+
+    <script>
+      const profileIcon = document.getElementById('profile-icon');
+      const logoutMenu = document.getElementById('logout-menu');
+  
+      profileIcon.addEventListener('click', function() {
+        logoutMenu.style.display = logoutMenu.style.display === 'block' ? 'none' : 'block';
+      });
+  
+      window.addEventListener('click', function(event) {
+        if (!profileIcon.contains(event.target) && !logoutMenu.contains(event.target)) {
+          logoutMenu.style.display = 'none';
+        }
+      });
+    </script>
+
+</body>
+</html>

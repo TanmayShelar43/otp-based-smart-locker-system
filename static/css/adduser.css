@@ -1,0 +1,122 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00246B;
+  padding: 8px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  font-size: 20px;
+}
+
+.navbar-logo img {
+  height: 60px;
+  width: 60px;
+  margin-left: 60px;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  padding-right: 50px;
+}
+
+.user-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 0 !important;
+  object-fit: cover;
+}
+
+/* General Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #e0e8ef, #3b83f681);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Form container styles */
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #555;
+  text-align: left;
+  width: 100%;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #00246B;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.container:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}

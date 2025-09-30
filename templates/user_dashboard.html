@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/user_dashboard.css') }}">
+  <title>Dashboard Layout</title>
+  <style>
+
+
+    /* Dropdown Logout Menu */
+    .logout-menu {
+      position: absolute;
+      top: 75px;
+      right: 20px;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      padding: 10px 15px;
+      border-radius: 8px;
+      display: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    .logout-menu a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #00246B;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .logout-menu a:hover {
+      background-color: #e1eaf1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="static/images/Whitelogo.png" alt="Logo" class="logo-icon">
+      <a href="{{url_for('home')}}" class="navbar-links">Home</a>
+      <a href="{{url_for('manageuser')}}" class="navbar-links">Manage Users</a>
+      <a href="{{url_for('blockstatus')}}" class="navbar-links">Manage Lock</a>
+    </div>
+    <div class="navbar-profile">
+      <!-- Profile Image -->
+      <img src="static/images/user (1).png" alt="Profile" class="profile-icon" id="profile-icon">
+      <!-- Logout Dropdown Menu -->
+      <div id="logout-menu" class="logout-menu">
+        <a href="{{ url_for('logout') }}">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="left-panel">
+      <a href="{{ url_for('adduser') }}" class="button-link">
+        <button class="action-button">Add User</button>
+      </a>
+      <a href="{{ url_for('requestotp') }}" class="button-link">
+        <button class="action-button">Get OTP</button>
+      </a>
+      <a href="{{ url_for('locklog') }}" class="button-link">
+        <button class="action-button">Lock Log</button>
+      </a>
+      <a href="{{ url_for('lockstatus') }}" class="button-link">
+        <button class="action-button">Status</button>
+      </a>
+    </div>
+    
+    <div class="right-panel">
+      <img src="static/images/7e5a7418f9.jpg" alt="Vault Illustration" class="vault-image">
+    </div>
+  </main>
+
+  <script>
+    const profileIcon = document.getElementById('profile-icon');
+    const logoutMenu = document.getElementById('logout-menu');
+
+    profileIcon.addEventListener('click', function() {
+      logoutMenu.style.display = logoutMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Hide dropdown when clicking outside
+    window.addEventListener('click', function(event) {
+      if (!profileIcon.contains(event.target) && !logoutMenu.contains(event.target)) {
+        logoutMenu.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="static/images/blacklogo.png" alt="Logo" class="logo-icon">
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="image-section">
+            <img src="static/images/login2.png" alt="Login Illustration">
+        </div>
+    
+        <div class="form-section">
+            <h2>Welcome Back!</h2>
+            <p>Login to continue</p>
+
+            <form method="POST" action="/check_user"> <!-- Form submits to /login -->
+                <div class="input-group">
+                    <img src="static/images/user.png" alt="Email Icon" class="icon-img">
+                    <input type="text" name="username" id="username" placeholder="Enter Username">
+                </div>
+                
+                <div class="input-group">
+                    <img src="static/images/lock icon.png" alt="Password Icon" class="icon-img">
+                    <input type="password" name="password" id="password" placeholder="Enter Password">
+                </div>
+                
+                <button type="submit" class="btn" id="loginBtn">Login</button>
+            </form>
+    
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            {% if error %}
+                <div class="error-message">{{ error }}</div> <!-- Display error message if exists -->
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>
